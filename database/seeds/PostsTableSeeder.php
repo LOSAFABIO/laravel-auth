@@ -23,7 +23,6 @@ class PostsTableSeeder extends Seeder
             $newPost->content = $faker->text();
             $newPost->post_date = $faker->dateTime();
             $newPost->author = $faker->name('male'|'female');
-            $newPost->published = rand(0, 1);
             $newPost->slug = Str::of($newPost->title)->slug('-');
             $newPost->save();
 
