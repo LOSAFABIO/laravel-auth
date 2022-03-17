@@ -60,7 +60,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="p-4" href="{{route("admin.posts.index")}}">POSTS</a>
+                                    <a class="p-4" href="{{route("admin.posts.index")}}">Posts</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

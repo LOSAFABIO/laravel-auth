@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','lista posts')
+@section('title','lista post')
 
 @section('content')
 <table class="table">
@@ -30,14 +30,19 @@
             <a href="{{route("admin.posts.show", $elemento->id)}}"><button type="button" class="btn btn-primary">Mostra</button></a>
           </th>
           <td>
-            {{-- <a href="{{route("admin.posts.edit", $elemento->id)}}"><button type="button" class="btn btn-success">Modifica</button></a> --}}
+            <a href="{{route("admin.posts.edit", $elemento->id)}}"><button type="button" class="btn btn-success">Modifica</button></a>
           </th>
           <td>
-            <a href="{{route("admin.posts.destroy", $elemento->id)}}"><button type="button" class="btn btn-danger">Elimina</button></a>
+              <form action="{{route("admin.posts.destroy", $elemento->id)}}" method="POST">
+                @csrf
+                @method("DELETE")
+                <button onclick="return confirm('Sicuro di voler cancellare questo post?');" type="submit" class="btn btn-danger">Cancella</button>
+              </form>
           </th>
         </tr>
         @endforeach
       </tbody>
       <a href="{{route("admin.posts.create")}}"><button type="button" class="btn btn-warning">Crea nuovo</button></a>
+      <a href="{{route("admin.home")}}"><button type="button" class="btn btn-secondary mx-2">Torna alla dashboard</button></a>
   </table>
 @endsection

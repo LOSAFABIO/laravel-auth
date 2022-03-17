@@ -1,10 +1,10 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('title','lista prodotti')
+@section('title','lista post')
 
 @section('content')
-    <h1>Crea un fumetto:</h1>
-    <form action="{{route("comics.store")}}" method="POST">
+    <h1>Crea un tuo post:</h1>
+    <form action="{{route("admin.posts.store")}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="title">Titolo</label>
@@ -14,31 +14,26 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="description">Contenuto</label>
-            <textarea class="form-control" id="description" name="description" rows="3">{{old("description")}}</textarea>
-            @error('description')
+            <label for="content">Contenuto</label>
+            <textarea class="form-control" id="content" name="content" rows="3">{{old("content")}}</textarea>
+            @error('content')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
-            <label for="thumb">Data_post</label>
-            <input type="text" class="form-control-file" id="thumb" name="thumb">
-        </div>
-        <div class="form-group">
-            <label for="price">Autore</label>
-            <input type="number" class="form-control" id="price" aria-describedby="price" name="price" placeholder="Inserisci prezzo" value="{{old("price")}}">
-            @error('price')
+            <label for="post_date">Data_post</label>
+            <input type="date" class="form-control-file" id="post_date" name="post_date">
+            @error('post_date')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
-            <label for="sale_date">Sulg</label>
-            <input type="date" class="form-control" id="sale_date" aria-describedby="sale_date" name="sale_date" placeholder="Inserisci data uscita" value="{{old("sale_date")}}">
-            @error('sale_date')
+            <label for="author">Autore</label>
+            <input type="text" class="form-control" id="author" aria-describedby="price" name="author" placeholder="Inserisci autore" value="{{old("author")}}">
+            @error('author')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-
         <a href="{{route("admin.posts.index")}}">
             <button type="button" class="btn btn-primary">Torna indietro</button>
         </a>

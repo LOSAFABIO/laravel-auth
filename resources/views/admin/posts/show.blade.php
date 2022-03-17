@@ -13,6 +13,6 @@
   <form action="{{route("admin.posts.destroy", $post->id)}}" method="POST">
     @csrf
     @method("DELETE")
-    <button onclick="return confirm('Sicuro di voler cancellare questo fumetto?');" type="submit" class="btn btn-danger">Cancella</button>
+    <button onclick="return confirm('Sicuro di voler cancellare questo post?');" type="submit" class="btn btn-danger">Cancella</button>
   </form>
 @endsection
